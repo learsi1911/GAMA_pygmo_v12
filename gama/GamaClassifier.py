@@ -203,8 +203,8 @@ class GamaClassifier(Gama):
         # print("Sigo en gama Classifier, porcentaje de datos es", 1-SuccessiveHalving[i])
         self._evaluation_library.determine_sample_indices(stratify=y)
         super().fit(x, y, *args, **kwargs)
-        print("Ya terminé en GamaClassifier.py")
-        
+        print("Ya terminé en GamaClassifier dormiré 20 s.py")
+        time.sleep(20)
         # print("dormiré 20 segundos")
         # time.sleep(20)
         # print("Ya desperté")
