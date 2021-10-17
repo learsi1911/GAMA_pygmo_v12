@@ -241,7 +241,8 @@ def pygmo_serach(
     
     # archi = pg.archipelago(t=pg.topology(pg.ring()))
     # archi = pg.archipelago(t=pg.topology(pg.free_form()))
-    archi = pg.archipelago(t=pg.topology(pg.fully_connected()))
+    # archi = pg.archipelago(t=pg.topology(pg.fully_connected()))
+    archi = pg.archipelago()
     isl1 = pg.island(algo = pg.algorithm(pg.de(gen = iters)), pop=pop)
     isl2 = pg.island(algo = pg.algorithm(pg.sade(gen = iters)), pop=pop)
     isl3 = pg.island(algo = pg.algorithm(pg.de1220(gen = iters)), pop=pop)
@@ -290,10 +291,11 @@ def pygmo_serach(
                 print("Los valores de los mejores, uno de ellos ero -inifito")
                 f_vector_new[i] = np.asarray([10000]) # Es importante porque archi.get_champions_f() vienen como numpys y ya no lo tenemos que cambiar a negativo
             pop.push_back(x = x_vectors_new[i].tolist(), f = f_vector_new[i].tolist()) # Aqui ya vienen como numpys [], ya no los necesitas meter en [] como al inicio, ni negativos
-        #El agoritmo y problema ya lo tenemos, lo que cambio fue la población
+        # # El agoritmo y problema ya lo tenemos, lo que cambio fue la población
         # archi = pg.archipelago(n=islands, algo=algo, pop=pop, t=pg.topology(pg.ring()))
         # archi = pg.archipelago(n=islands, algo=algo, pop=pop, t=pg.topology(pg.free_form()))
-        archi = pg.archipelago(n=islands, algo=algo, pop=pop, t=pg.topology(pg.fully_connected()))
+        # archi = pg.archipelago(n=islands, algo=algo, pop=pop, t=pg.topology(pg.fully_connected()))
+        archi = pg.archipelago(n=islands, algo=algo, pop=pop)
         print("CREATION OF THE ARCHIPELAGO, IT WILL START THE EVOLUTION IN PARALLEL")
         print(archi) 
         archi.evolve()
